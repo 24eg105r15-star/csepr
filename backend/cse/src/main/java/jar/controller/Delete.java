@@ -8,17 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jar.repo.StudentRepo;
 
-
 @RestController
 @RequestMapping("/api/v1")
-public class Delete{
+public class Delete {
 
     @Autowired
     StudentRepo db;
 
     @DeleteMapping("/{id}")
-    public String deleteStudent(@PathVariable long id){
-        if(db.existsById(id)){
+    public String deleteStudent(@PathVariable long id) {
+        if (db.existsById(id)) {
             db.deleteById(id);
             return "Student deleted successfully";
         } else {

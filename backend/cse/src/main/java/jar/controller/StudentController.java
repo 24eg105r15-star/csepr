@@ -1,20 +1,23 @@
 package jar.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import jar.model.Student;
-import jar.repo.*;
+import jar.repo.StudentRepo;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin("*")
 public class StudentController {
 
     @GetMapping()
@@ -22,6 +25,7 @@ public class StudentController {
         Map<Object, Object> res = new HashMap<>();
 
         res.put("msg", "Get api");
+        res.put("list", getAllStudents());
 
         return res;
     }
@@ -47,4 +51,7 @@ public class StudentController {
         return res;
     }
 
+    List<Student> getAllStudents() {
+        return db.findAll();
+    }
 }

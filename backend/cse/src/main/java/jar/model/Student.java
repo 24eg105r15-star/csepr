@@ -1,5 +1,6 @@
 package jar.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     public String name;
+    @Column(unique = true)
     public String rollno;
     public String ip;
 
@@ -31,13 +33,15 @@ public class Student {
         this.ip = ip;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
-       public String getRoll(){
+
+    public String getRoll() {
         return this.rollno;
     }
-       public String getIp(){
+
+    public String getIp() {
         return this.ip;
     }
 
