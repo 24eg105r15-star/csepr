@@ -1,6 +1,6 @@
 import React from 'react'
-import "./App.css"
-function App() {
+
+function Landing() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function App() {
   )
 }
 
-export default App
+export default Landing
